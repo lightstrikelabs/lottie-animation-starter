@@ -11,6 +11,10 @@ The project integrates universal version of [shadcn-ui](https://ui.shadcn.com/) 
 
 [Web App Demo](https://expo-starter.github.io/expo-local-first-template)
 
+If you're searching for a more production-ready template, consider purchasing the [Expo Starter Kit](https://expostarter.com). Your support will help us maintaining our free templates as well.
+
+For local-first example with remote sync please check our [article](https://www.expostarter.com/blog/expo-libsql-improve-app-performance)
+
 ## 📚 What's inside
 
 - ⚡ [Expo v51](https://expo.dev) - Built with Expo for cross-platform support
@@ -28,8 +32,6 @@ New :
 - 💽 Local-first based on [Expo SQLite for](https://docs.expo.dev/versions/latest/sdk/sqlite/) for native and [Sqlite.js](https://github.com/sql-js/sql.js) for Web
 - 💽 Full integrated with [DrizzleORM](https://drizzle.dev) including live query
 
-In-progress :
-- [OP-sqlite](https://github.com/OP-Engineering/op-sqlite) local-first database and sync with [Tusco](https://docs.turso.tech/sdk/ts/quickstart)
 
 ### Requirements
 
