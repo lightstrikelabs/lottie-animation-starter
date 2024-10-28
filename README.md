@@ -4,12 +4,7 @@
   <a href="https://expostarter.com/"><img src="assets/github-banner.png?raw=true" alt="Expo Starter Kit"></a>
 </p>
 
-The `Expo Starter Template` is a free project model with up-to-date frameworks and configurations for your new Expo project. It helps eliminate repetitive tasks when starting a project from scratch. This template integrates carefully selected libraries to help you bootstrap your new React Native and Expo app with the most effective frameworks and tools available in the market.
-
-The project integrates universal version of [shadcn-ui](https://ui.shadcn.com/) components, Tailwind styling, state management, and a local-first database strategy for universal mobile apps on Android, iOS, and Web.
-
-
-[Web App Demo](https://expo-starter.github.io/expo-local-first-template)
+The `Expo Local-First Template` is a free project model with up-to-date frameworks and configurations for your new local-first Expo project.
 
 If you're searching for a more production-ready template, consider purchasing the [Expo Starter Kit](https://expostarter.com). Your support will help us maintaining our free templates as well.
 
