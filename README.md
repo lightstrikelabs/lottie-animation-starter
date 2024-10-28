@@ -14,18 +14,15 @@ For local-first example with remote sync please check our [article](https://www.
 
 - ⚡ [Expo v51](https://expo.dev) - Built with Expo for cross-platform support
 - ⚛️ [React Native v0.73.6](https://reactnative.dev) for building native apps using React
+- 💽 Local-first based on [Expo SQLite for](https://docs.expo.dev/versions/latest/sdk/sqlite/) for native and [Sqlite.js](https://github.com/sql-js/sql.js) for Web
+- 💽 Full integrated with [DrizzleORM](https://drizzle.dev) including live query
 - 💎 Integrate with [NativeWind v4](https://www.nativewind.dev), Tailwind CSS for React Native
-- 📁 Expo Router and Expo API
-- 📦 [zustand](docs.pmnd.rs/zustand) - State management solution.
-- 🎨 Common components from the [rn-reusables](https://github.com/mrzachnugent/react-native-reusables) library: Icons, ThemeToggle, Avatar, Button, Card, Progress, Text, Tooltip.
+- 📦 [zustand](docs.pmnd.rs/zustand)
+- 🎨 Common components from the [rn-reusables](https://github.com/mrzachnugent/react-native-reusables) 
 - 🌗 Dark and light mode - Android Navigation Bar matches mode and Persistant mode
-- 💡 Absolute Imports using `@` prefix
 - 📏 Linter and Code Formatter with [biome](https://biomejs.dev/)
 - 🗂 VSCode recommended extensions, settings, and snippets to enhance the developer experience.
 
-New :
-- 💽 Local-first based on [Expo SQLite for](https://docs.expo.dev/versions/latest/sdk/sqlite/) for native and [Sqlite.js](https://github.com/sql-js/sql.js) for Web
-- 💽 Full integrated with [DrizzleORM](https://drizzle.dev) including live query
 
 
 ### Requirements
