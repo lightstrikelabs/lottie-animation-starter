@@ -36,7 +36,7 @@ For local-first example with remote sync please check our [article](https://www.
 Run the following command on your local environment:
 
 ```shell
-bunx create-expo-app --template @expo-starter/expo-local-first-template
+bunx create-expo-app --template git@github.com:expo-starter/expo-local-first-template.git
 ```
 
 Then, you can run locally in development mode with live reload:
