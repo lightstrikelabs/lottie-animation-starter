@@ -4,6 +4,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: "Expo Starter",
   slug: "expostarter",
+  newArchEnabled: true,
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/images/icon.png",
@@ -34,7 +35,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     output: "single",
     favicon: "./assets/images/favicon.png",
   },
-  plugins: [["expo-router"]],
+  plugins: [["expo-router"], ["expo-sqlite"]],
   experiments: {
     typedRoutes: true,
     baseUrl: "/expo-local-first-template",

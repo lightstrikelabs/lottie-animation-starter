@@ -18,7 +18,7 @@ For local-first example with remote sync please check our [article](https://www.
 - 💽 Full integrated with [DrizzleORM](https://drizzle.dev) including live query
 - 💎 Integrate with [NativeWind v4](https://www.nativewind.dev), Tailwind CSS for React Native
 - 📦 [zustand](docs.pmnd.rs/zustand)
-- 🎨 Common components from the [rn-reusables](https://github.com/mrzachnugent/react-native-reusables) 
+- 🎨 Common components from the [rn-reusables](https://github.com/mrzachnugent/react-native-reusables)
 - 🌗 Dark and light mode - Android Navigation Bar matches mode and Persistant mode
 - 📏 Linter and Code Formatter with [biome](https://biomejs.dev/)
 - 🗂 VSCode recommended extensions, settings, and snippets to enhance the developer experience.
@@ -36,7 +36,7 @@ For local-first example with remote sync please check our [article](https://www.
 Run the following command on your local environment:
 
 ```shell
-bunx create-expo-app --template git@github.com:expo-starter/expo-local-first-template.git
+bunx create-expo-app --template https://github.com/expo-starter/expo-local-first-template
 ```
 
 Then, you can run locally in development mode with live reload:
