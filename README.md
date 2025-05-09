@@ -2,6 +2,12 @@
 
 ## Steps
 
+### Editing an existing animation
+
+1. All you have to do is replace the relevant .json file in `assets/lotties`, keeping the same file name. Once replaced, refresh the app and you will see the updated animation.
+
+### Adding a new animation
+
 To add a new animation:
 
 1. Add the `.json` lottie file to the folder `assets/lotties`
