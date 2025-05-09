@@ -1,4 +1,3 @@
-import { BookOpen as BookIcon } from '@/lib/icons/Book';
 import { Tabs } from 'expo-router';
 
 export const unstable_settings = {
@@ -12,7 +11,6 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Lottie Tester',
-          tabBarIcon: ({ color, size }) => <BookIcon color={color} size={size} className="text-foreground" />,
         }}
       />
     </Tabs>
