@@ -1,108 +1,122 @@
-import {View, Pressable} from "react-native";
-import {useScrollToTop} from "@react-navigation/native";
-import {FlashList} from "@shopify/flash-list";
-import {eq} from "drizzle-orm";
-import {Link, Stack} from "expo-router";
-import * as React from "react";
-import {useLiveQuery} from "drizzle-orm/expo-sqlite";
+import { useState } from "react";
+import { View, StyleSheet, Pressable } from "react-native";
+import { Stack } from "expo-router";
 
-import {Text} from "@/components/ui/text";
-import {habitTable} from "@/db/schema";
-import {Plus} from "@/components/Icons";
-import {useMigrationHelper} from "@/db/drizzle";
-import {useDatabase} from "@/db/provider";
-import {HabitCard} from "@/components/habit";
-import type {Habit} from "@/lib/storage";
+import { Text } from "@/components/ui/text";
+import { LottieAnimation } from "@/components/lottie/LottieAnimation";
+import { ELottieAnimationName } from "@/components/lottie/lottieAnimationConsts";
 
-export default function Home() {
-  const {success, error} = useMigrationHelper();
-
-  if (error) {
-    return (
-      <View className="flex-1 gap-5 p-6 bg-secondary/30">
-        <Text>Migration error: {error.message}</Text>
-      </View>
-    );
-  }
-  if (!success) {
-    return (
-      <View className="flex-1 gap-5 p-6 bg-secondary/30">
-        <Text>Migration is in progress...</Text>
-      </View>
-    );
-  }
-
-  return <ScreenContent />;
-}
-
-function ScreenContent() {
-  const {db} = useDatabase();
-  const {data: habits, error} = useLiveQuery(
-    db?.select().from(habitTable).where(eq(habitTable.archived, false)),
+export default function LottieTesterScreen() {
+  const [selectedAnimation, setSelectedAnimation] = useState<ELottieAnimationName>(
+    ELottieAnimationName.MOON,
   );
 
-  const ref = React.useRef(null);
-  useScrollToTop(ref);
+  const animationNames = Object.values(ELottieAnimationName);
 
-  const renderItem = React.useCallback(
-    ({item}: {item: Habit}) => <HabitCard {...item} />,
-    [],
-  );
-
-  if (error) {
-    return (
-      <View className="flex-1 items-center justify-center bg-secondary/30">
-        <Text className="text-destructive pb-2 ">Error Loading data</Text>
-      </View>
-    );
-  }
   return (
-    <View className="flex flex-col basis-full bg-background  p-8">
-      <Stack.Screen
-        options={{
-          title: "Habits",
-        }}
-      />
-      <FlashList
-        ref={ref}
-        className="native:overflow-hidden rounded-t-lg"
-        estimatedItemSize={49}
-        showsVerticalScrollIndicator={false}
-        ListEmptyComponent={() => (
-          <View>
-            <Text className="text-lg">Hi There 👋</Text>
-            <Text className="text-sm">
-              This example use sql.js on Web and expo/sqlite on native
-            </Text>
-            <Text className="text-sm">
-              If you change the schema, you need to run{" "}
-              <Text className="text-sm font-mono text-muted-foreground bg-muted">
-                bun db:generate
+    <View style={styles.container}>
+      <Stack.Screen options={{ title: "Lottie Tester" }} />
+      <View style={styles.controlsContainer}>
+        <Text style={styles.label}>Select Animation:</Text>
+        <View style={styles.buttonContainer}>
+          {animationNames.map((name) => (
+            <Pressable
+              key={name}
+              style={[
+                styles.button,
+                selectedAnimation === name && styles.selectedButton,
+              ]}
+              onPress={() => setSelectedAnimation(name)}
+            >
+              <Text
+                style={[
+                  styles.buttonText,
+                  selectedAnimation === name && styles.selectedButtonText,
+                ]}
+              >
+                {name.charAt(0).toUpperCase() + name.slice(1)}
               </Text>
-              <Text className="text-sm px-1">
-                then
-              </Text>
-              <Text className="text-sm font-mono text-muted-foreground bg-muted">
-                bun migrate
-              </Text>
-            </Text>
-          </View>
+            </Pressable>
+          ))}
+        </View>
+      </View>
+
+      <View style={styles.animationContainer}>
+        {selectedAnimation ? (
+          <LottieAnimation
+            animationName={selectedAnimation}
+            shouldLoop={true}
+          />
+        ) : (
+          <Text>No animation selected</Text>
         )}
-        ItemSeparatorComponent={() => <View className="p-2" />}
-        data={habits}
-        renderItem={renderItem}
-        keyExtractor={(_, index) => `item-${ index }`}
-        ListFooterComponent={<View className="py-4" />}
-      />
-      <View className="absolute web:bottom-20 bottom-10 right-8">
-        <Link href="/create" asChild>
-          <Pressable>
-            <View className="bg-primary justify-center rounded-full h-[45px] w-[45px]">
-              <Plus className="text-background self-center" />
-            </View>
-          </Pressable>
-        </Link>
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: "#f0f0f0", // A light background color
+  },
+  controlsContainer: {
+    marginBottom: 20,
+    padding: 15,
+    backgroundColor: "white",
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 12,
+    color: "#333",
+    textAlign: "center",
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  button: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: "#007AFF",
+    borderRadius: 8,
+    marginHorizontal: 5,
+  },
+  selectedButton: {
+    backgroundColor: "#0056b3",
+    borderColor: '#004085',
+    borderWidth: 1,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 14,
+    textAlign: "center",
+  },
+  selectedButtonText: {
+    color: '#e0e0e0',
+  },
+  animationContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: 10,
+    padding: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
+  },
+});

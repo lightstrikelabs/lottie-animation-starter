@@ -2,7 +2,7 @@ import type { ConfigContext, ExpoConfig } from "@expo/config";
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: "Expo Starter",
+  name: "Lottie Tester",
   slug: "expostarter",
   newArchEnabled: true,
   version: "1.0.0",
@@ -35,7 +35,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     output: "single",
     favicon: "./assets/images/favicon.png",
   },
-  plugins: [["expo-router"], ["expo-sqlite"]],
+  plugins: [["expo-router"]],
   experiments: {
     typedRoutes: true,
     baseUrl: "/expo-local-first-template",
